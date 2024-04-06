@@ -12,75 +12,25 @@
 </head>
 
 <body>
-  <button onClick={window.history.back()}>Back to Home Page</button>
-  <div class="movie">
-    <h2><u>Movie Recommendations for "{{ search_name }}"</u></h2>
-    <table class="movie_table" align="center">
-      <tr>
-        <th>Movie Title</th>
-        <th>Release Date</th>
-        <th>Similarity Score</th>
-      </tr>
-      <tbody class="table_body">
-        <tr>
-          <td><a href={{ movie_homepage[0] }} target="_blank">{{ movie_names[0] }}</a></td>
-          <td>{{ movie_releaseDate[0] }}</td>
-          <td>{{ movie_simScore[0][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[1] }} target="_blank">{{ movie_names[1] }}</a></td>
-          <td>{{ movie_releaseDate[1] }}</td>
-          <td>{{ movie_simScore[1][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[2] }} target="_blank">{{ movie_names[2] }}</a></td>
-          <td>{{ movie_releaseDate[2] }}</td>
-          <td>{{ movie_simScore[2][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[3] }} target="_blank">{{ movie_names[3] }}</a></td>
-          <td>{{ movie_releaseDate[3] }}</td>
-          <td>{{ movie_simScore[3][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[4] }} target="_blank">{{ movie_names[4] }}</a></td>
-          <td>{{ movie_releaseDate[4] }}</td>
-          <td>{{ movie_simScore[4][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[5] }} target="_blank">{{ movie_names[5] }}</a></td>
-          <td>{{ movie_releaseDate[5] }}</td>
-          <td>{{ movie_simScore[5][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[6] }} target="_blank">{{ movie_names[6] }}</a></td>
-          <td>{{ movie_releaseDate[6] }}</td>
-          <td>{{ movie_simScore[6][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[7] }} target="_blank">{{ movie_names[7] }}</a></td>
-          <td>{{ movie_releaseDate[7] }}</td>
-          <td>{{ movie_simScore[7][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[8] }} target="_blank">{{ movie_names[8] }}</a></td>
-          <td>{{ movie_releaseDate[8] }}</td>
-          <td>{{ movie_simScore[8][1] }}</td>
-        </tr>
-        <tr>
-          <td><a href={{ movie_homepage[9] }} target="_blank">{{ movie_names[9] }}</a></td>
-          <td>{{ movie_releaseDate[9] }}</td>
-          <td>{{ movie_simScore[9][1] }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  </div>
-  <!-- partial -->
-  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+  <h2 style="text-align: center;">
+    <u style="color: #fff;">Movie Recommendations for "{{ search_name }}"</u>
+  </h2>
+  <div class="movies-container">
 
+    {% for i in range(10) %}
+    <div class="movie-card">
+      <h3><a href="{{ movie_homepage[i] }}" target="_blank">{{ movie_names[i] }}</a></h3>
+      <p>Release Date: {{ movie_releaseDate[i] }}</p>
+      <!-- You can add more information here if needed -->
+    </div>
+    {% endfor %}
+  </div>
+  <button
+    style="margin-left: 650px; margin-bottom: 100px; width: 190px; height: 50px; background-color: crimson; color: white; border-radius: 30px; border: none; cursor: pointer;"
+    onClick={window.history.back()}>Back to Home Page</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- You can keep other script tags if needed -->
 </body>
 
 </html>

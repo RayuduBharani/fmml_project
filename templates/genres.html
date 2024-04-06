@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recommendations for {{ genre_name }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="./static/found.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://repository-images.githubusercontent.com/275336521/20d38e00-6634-11eb-9d1f-6a5232d0f84f');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .movies-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .movie-card {
+      width: calc(33.33% - 20px);
+      /* Adjust for margin */
+      margin: 10px 10px 20px;
+      /* Margin only on top, left, and right */
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .movie-card h3 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .movie-card p {
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .movie-card {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .movie-card {
+        width: calc(100% - 20px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h2 style="text-align: center;">
+    <u style="color: #fff;">Movie Recommendations for "{{ genre_name }}"</u>
+  </h2>
+  <div class="movies-container">
+
+    {% for i in range(10) %}
+    <div class="movie-card">
+      <h3>
+        {% if movie_homepage[i] != '#' %}
+        <a href="{{ movie_homepage[i] }}" target="_blank">{{movie_names[i]}}</a>
+        {% else %}
+        <a href="{{ movie_homepage[i] }}">{{ movie_names[i] }}</a>
+        {% endif %}
+
+      </h3>
+      <p>Release Date: {{ movie_releaseDate[i] }}</p>
+      <!-- You can add more information here if needed -->
+    </div>
+    {% endfor %}
+  </div>
+  <button
+    style="margin-left: 650px; margin-bottom: 100px; width: 190px; height: 50px; background-color: crimson; color: white; border-radius: 30px; border: none; cursor: pointer;"
+    onClick={window.history.back()}>Back to Home Page</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+
+</html>

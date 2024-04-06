@@ -1,25 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CB Movie Recommender</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
-  <link rel="stylesheet" href="./static/style.css">
-</head>
-<body>
+<html lang="en">
 
-    <h2><u>Content Based Movie Recommendation System</u></h2>
+<head>
+    <meta charset="UTF-8">
+    <title>CB Movie Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:300,500&amp;display=swap'>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+    <h2 style="color: orangered;"><u>Content Based Movie Recommendation System</u></h2>
     <div class="movie">
         <form action="{{ url_for('main') }}" method="POST">
             <input type="text" id="movie_name" name="movie_name" placeholder="Enter a full movie name" autocorrect="off" autocapitalize="off" required />
-            <input type="submit" id="submission_button" value="Submit"/>
+            <input type="submit" id="submission_button" value="Submit" />
         </form>
-  </div>
-  <!-- <p class="creds">Choy Mei Xin RMM3 19WMR01017</p> -->
-  <script src='https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js'></script>
+        <div class="movie-genre-container">
+            <div class="movie-genre-card hover" onclick="selectGenre('action')">
+                <h3 class="hover">Action</h3>
+                <p>Sample Action Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('comedy')">
+                <h3>Comedy</h3>
+                <p>Sample Comedy Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('drama')">
+                <h3>Drama</h3>
+                <p>Sample Drama Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('horror')">
+                <h3>Horror</h3>
+                <p>Sample Horror Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('sad')">
+                <h3>Sad</h3>
+                <p>Sample Sad Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('romance')">
+                <h3>Romance</h3>
+                <p>Sample Romance Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('biography')">
+                <h3>Biography</h3>
+                <p>Sample Biography Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('history')">
+                <h3>History</h3>
+                <p>Sample History Movies</p>
+            </div>
+            <div class="movie-genre-card hover" onclick="selectGenre('adventure')">
+                <h3>Adventure</h3>
+                <p>Sample Adventure Movies</p>
+            </div>
+        </div>
+    </div>
 
 </body>
+
+<script>
+    function selectGenre(genre) {
+        window.location.href = `/genre/${genre}`
+    }
+</script>
+
+
 </html>
